@@ -8,10 +8,49 @@
 	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/style.css">
 </head>
 <body>
-	<header></header>
+	<header>
+		<!--header code goes here!-->
+		<nav class="navbar navbar-inverse">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">
+						<i class="ion-university"></i>
+						استاد مددیار
+					</a>
+				</div>
+
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+					<ul class="nav navbar-nav">
+						<li class="active"><a href="#">پرسش و پاسخ <span class="sr-only">(current)</span></a></li>
+						<li><a href="#">دانلود منابع</a></li>
+						<li><a href="#">اخبار و اطلاعیه</a></li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="#">ورود استاد</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header>
+
 	<main>
-		<p>Welcome to our site</p>
+		<!--main codes goes here!-->
 	</main>
-	<footer></footer>
+
+	<footer class="main-footer">
+		<div class="row">
+			<section class="col-md-12">
+				<p>کپی‌رایت © ۱۳۹۳. کلیه حقوق این سایت متعلق به آقای مجتبی مددیار می باشد<p>
+			</section>
+		</div>
+	</footer>
+	<script src="<?php echo base_url(); ?>assets/js/jquery-1.11.0.js"></script>
+	<script src="<?php echo base_url(); ?>assets/js/bootstrap.min.js"></script>
 </body>
 </html>

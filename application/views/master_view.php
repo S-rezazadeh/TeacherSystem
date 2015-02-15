@@ -40,7 +40,7 @@
 	</header>
 
 	<main>
-		<!--main codes goes here!-->
+		<?php echo $content; ?>
 	</main>
 
 	<footer class="main-footer">

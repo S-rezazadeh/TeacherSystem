@@ -5,6 +5,8 @@ class Home extends CI_Controller
 
 	public function index()
 	{
-		$this->load->view('home');
+		$content = $this->load->view('home',null,true);//NULL->data , true is to load into varible
+
+		$this->load->view('master_view',array('content' => $content));
 	}
 }

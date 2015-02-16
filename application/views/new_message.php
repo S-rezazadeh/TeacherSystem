@@ -5,7 +5,6 @@
     <title>Document</title>
 </head>
 <body>
-    <p>Welcome to our site</p>
-    <a href="<?php echo $newMessUrl; ?>">New Message</a>
+    <p>New Message Page</p>
 </body>
 </html>

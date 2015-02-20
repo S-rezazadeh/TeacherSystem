@@ -95,7 +95,12 @@
 
 // CSS3 PROPERTIES
 // --------------------------------------------------
-
+.border-radius(@radius){
+	.border-top-radius(@radius);
+	.border-left-radius(@radius);
+	.border-right-radius(@radius);
+	.border-bottom-radius(@radius);
+}
 // Single side border-radius
 .border-top-radius(@radius) {
   border-top-left-radius: @radius;

@@ -46,15 +46,15 @@
 
 							<!-- Nav tabs -->
 							<ul class="nav nav-tabs" role="tablist">
-								<li role="presentation"><a href="#login"
+								<li role="presentation" class="active"><a href="#login"
 														   aria-controls="profile" role="tab" data-toggle="tab">ورود به سایت</a></li>
-								<li role="presentation" class="active"><a href="#register"
+								<li role="presentation" ><a href="#register"
 																		  aria-controls="home" role="tab" data-toggle="tab">ثبت نام در سایت</a></li>
 							</ul>
 
 							<!-- Tab panes -->
 							<div class="tab-content">
-								<div role="tabpanel" class="tab-pane" id="login">
+								<div role="tabpanel" class="tab-pane row active" id="login">
                                        <form class="col-xs-6">
                                         <div class="form-group">
 											<label for="email">ایمیل</label>
@@ -67,15 +67,15 @@
 												   id="pass" placeholder="گذرواژه را وارد کنید">
 										</div>
                                 <div class="checkbox">
-                                    <label for="remembering">
-                                        <input type="checkbox">مرا بخاطر بسپار
+                                    <label for="remembering" dir="ltr">
+										<input type="checkbox" id="remembering">مرا بخاطر بسپار
                                     </label>
                                 </div>
                                 	<button type="submit"
-										class="btn btn-default" id="register-btn">ورود</button>
+										class="btn btn-default" id="login-btn">ورود</button>
 								    </form>
 								</div>
-								<div role="tabpanel" class="tab-pane active row" id="register">
+								<div role="tabpanel" class="tab-pane  row" id="register">
 									<form class="col-md-6">
 										<div class="form-group">
 											<label for="username">نام و نام خانوادگی</label>

@@ -54,7 +54,27 @@
 
 							<!-- Tab panes -->
 							<div class="tab-content">
-								<div role="tabpanel" class="tab-pane" id="login">...</div>
+								<div role="tabpanel" class="tab-pane" id="login">
+                                       <form class="col-xs-6">
+                                        <div class="form-group">
+											<label for="email">ایمیل</label>
+											<input type="email" class="form-control"
+												   id="email" placeholder="ایمیل را وارد کنید">
+										</div>
+										<div class="form-group">
+											<label for="password">گذر واژه</label>
+											<input type="password" class="form-control"
+												   id="pass" placeholder="گذرواژه را وارد کنید">
+										</div>
+                                <div class="checkbox">
+                                    <label for="remembering">
+                                        <input type="checkbox">مرا بخاطر بسپار
+                                    </label>
+                                </div>
+                                	<button type="submit"
+										class="btn btn-default" id="register-btn">ورود</button>
+								    </form>
+								</div>
 								<div role="tabpanel" class="tab-pane active row" id="register">
 									<form class="col-md-6">
 										<div class="form-group">

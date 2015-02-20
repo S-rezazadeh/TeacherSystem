@@ -55,7 +55,7 @@
 							<!-- Tab panes -->
 							<div class="tab-content">
 								<div role="tabpanel" class="tab-pane row active" id="login">
-                                       <form class="col-xs-6">
+                                       <form class="col-md-6">
                                         <div class="form-group">
 											<label for="email">ایمیل</label>
 											<input type="email" class="form-control"

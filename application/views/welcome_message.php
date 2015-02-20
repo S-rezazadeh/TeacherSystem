@@ -71,6 +71,17 @@
 	<h1>Welcome to CodeIgniter!</h1>
 
 	<div id="body">
+            
+            <select class="form-control">
+                <option value ="1">دانشگاه صنعتی ارومیه</option>
+                <option value ="2">دانشگاه سما</option>
+            </select>
+            
+            <?php
+            print_r($universities);
+            
+            
+            ?>
 		<p>The page you are looking at is being generated dynamically by CodeIgniter.</p>
 
 		<p>If you would like to edit this page you'll find it located at:</p>

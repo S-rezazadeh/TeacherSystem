@@ -30,3 +30,16 @@ ALTER TABLE student ADD uid int;
 
 ALTER table student add foreign key(uid) references university(id);
 #---------------------------------------
+
+
+#By arashdn:
+ALTER DATABASE StudentSystem CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+ALTER TABLE admin CONVERT TO CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+ALTER TABLE student CONVERT TO CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+ALTER TABLE reply CONVERT TO CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+ALTER TABLE attachment CONVERT TO CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+ALTER TABLE resource CONVERT TO CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+ALTER TABLE resfile CONVERT TO CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+ALTER TABLE university CONVERT TO CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+ALTER TABLE news CONVERT TO CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+ALTER TABLE un CONVERT TO CHARACTER SET utf8 COLLATE utf8_unicode_ci;

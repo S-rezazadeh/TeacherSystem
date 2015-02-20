@@ -55,7 +55,7 @@
 							<!-- Tab panes -->
 							<div class="tab-content">
 								<div role="tabpanel" class="tab-pane row active" id="login">
-                                       <form class="col-md-6">
+                                    <form class="col-md-6">
                                         <div class="form-group">
 											<label for="email">ایمیل</label>
 											<input type="email" class="form-control"
@@ -71,32 +71,34 @@
 										<input type="checkbox" id="remembering">مرا بخاطر بسپار
                                     </label>
                                 </div>
-                                	<button type="submit"
-										class="btn btn-default" id="login-btn">ورود</button>
+                                	<button type="submit" class="btn btn-default" id="login-btn">ورود</button>
 								    </form>
 								</div>
 								<div role="tabpanel" class="tab-pane  row" id="register">
-									<form class="col-md-6">
+                                    <form method="post" action="<?php echo site_url('/welcome/test');?>" class="col-md-6">
 										<div class="form-group">
 											<label for="username">نام و نام خانوادگی</label>
-											<input type="text" class="form-control"
-											id="username" placeholder="نام کاربری را وارد کنید">
+											<input type="text" name="reg_name" class="form-control" id="username" placeholder="نام کاربری را وارد کنید">
 										</div>
 										<div class="form-group">
 											<label for="email">ایمیل</label>
-											<input type="email" class="form-control"
-												   id="email" placeholder="ایمیل را وارد کنید">
+											<input type="email" name="reg_email" class="form-control" id="email" placeholder="ایمیل را وارد کنید">
 										</div>
 										<div class="form-group">
 											<label for="pass">گذر واژه</label>
-											<input type="password" class="form-control"
-												   id="pass" placeholder="گذرواژه را وارد کنید">
+											<input type="password" name = "reg_pass" class="form-control" id="pass" placeholder="گذرواژه را وارد کنید">
 										</div>
 										<div class="form-group">
 											<label for="pass">دانشگاه</label>
-											<select class="form-control">
-												<option>دانشگاه صنعتی ارومیه</option>
-												<option>دانشگاه سما</option>
+											<select name = "reg_university" class="form-control">
+                                                <?php
+                                                foreach ($universities as $key => $value) 
+                                                {
+                                                    echo '<option value="'.$value['id'].'">'.$value['name'].'</option>';
+
+                                                }
+
+                                                ?>
 											</select>
 										</div>
 										<button type="submit"

@@ -1,0 +1,4 @@
+1.create db and add tables.
+2.set db info in config/database.php
+3.add encryption key to config/config.php (in *nix oses : openssl rand -base 64 32);
+To take maximum advantage of the encryption algorithm, your key should be 32 characters in length (128 bits). The key should be as random a string as you can concoct, with numbers and uppercase and lowercase letters. Your key should not be a simple text string. In order to be cryptographically secure it needs to be as random as possible.

@@ -1,4 +1,3 @@
-
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Home extends CI_Controller
@@ -6,13 +5,19 @@ class Home extends CI_Controller
 
 	public function index()
 	{
-            
-            $this->load->model('university_model');
-            $universities = $this->university_model->getAllUniversity();
-            
-            $data = array('universities' => $universities);
-            $content = $this->load->view('home',$data,true);//NULL->data , true is to load into varible
+           $login = $this->session->userdata('role');
+            if($login == false || $login == 0)
+            {
+                redirect('member/');
+            }
+            else
+            {
+                $data = array('sess' => $this->session->all_userdata());
+                $content = $this->load->view('home',$data,true);//NULL->data , true is to load into varible
 
-            $this->load->view('master_view',array('content' => $content));
+                $this->load->view('master_view',array('content' => $content));
+            }
+            
+
 	}
 }

@@ -30,3 +30,7 @@ application/cache/*
 application/logs/*
 !application/logs/index.html
 !application/logs/.htaccess
+
+
+tmp/captcha/*
+!tmp/captcha/index.html

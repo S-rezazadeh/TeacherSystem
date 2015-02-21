@@ -6,6 +6,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Document</title>
 	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/style.css">
+    <script src="<?php echo base_url(); ?>assets/js/jquery-1.11.0.js"></script>
+	<script src="<?php echo base_url(); ?>assets/js/bootstrap.min.js"></script>
 </head>
 <body>
 	<header>
@@ -50,7 +52,6 @@
 			</section>
 		</div>
 	</footer>
-	<script src="<?php echo base_url(); ?>assets/js/jquery-1.11.0.js"></script>
-	<script src="<?php echo base_url(); ?>assets/js/bootstrap.min.js"></script>
+
 </body>
 </html>

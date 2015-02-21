@@ -15,6 +15,10 @@ class Welcome extends CI_Controller
 	{
             echo 'test<br />';
             print_r($this->input->post());
+            if($this->input->post('submit'))
+            {
+                echo 'submitted';
+            }
 	}
 }
 

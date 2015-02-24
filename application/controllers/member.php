@@ -8,37 +8,24 @@ class Member extends CI_Controller
             $this->load->model('university_model');
             $universities = $this->university_model->getAllUniversity();
             
-            
-            $this->load->helper('captcha');
-            $vals = array(
-                'word' => rand(100000, 999999),
-                'img_path' => 'tmp/captcha/',
-                'img_url' => base_url().'tmp/captcha/',
-                //'font_path' => './path/to/fonts/texb.ttf',
-                'img_width' => '150',
-                'img_height' => 30,
-                'expiration' => 1200
-                );
-
-            $cap = create_captcha($vals);
-                        
-            
-            $data = array('universities' => $universities,'defTab'=>'','captcha'=>$cap);
+            $data = array('universities' => $universities,'defTab'=>'');
             
             $this->load->library('form_validation');
             
             if($this->input->post('submit'))
             {
-                $this->load->library('form_validation');
             
                 $this->form_validation->set_rules('reg_name', 'نام', 'required|htmlspecialchars');
                 $this->form_validation->set_rules('reg_password', 'کلمه عبور', 'required|matches[reg_password_conf]');
                 $this->form_validation->set_rules('reg_email', 'ایمیل', 'required|valid_email');
                 $this->form_validation->set_rules('reg_university', 'university', 'required|integer');
+                $this->form_validation->set_rules('captcha', 'کد امنیتی', 'required|callback_validate_captcha');
                 
                 $this->form_validation->set_message('required', '%s نباید خالی باشد');
                 $this->form_validation->set_message('valid_email', 'آدرس ایمیل وارد شده باید معتبر باشد');
                 $this->form_validation->set_message('matches', 'کلمات عبور وارد شده یکسان نیست');
+                $this->form_validation->set_message('validate_captcha', 'کد امنیتی صحیح نیست');
+
                 
                 
                 if ($this->form_validation->run() == FALSE)
@@ -63,4 +50,28 @@ class Member extends CI_Controller
             
             
 	}
+        
+
+        
+        public function validate_captcha()
+        {
+            $sss=$this->input->post('captcha');
+            //$this->form_validation->set_message('validate_captcha', 'session:'.$this->session->userdata['captcha'].'\nPosted val:'.$sss);
+            //$this->form_validation->set_message('validate_captcha', FCPATH.CAPTCHA_PATH.$this->session->userdata['capimg']);
+
+            
+            if($sss== $this->session->userdata['captcha'] && file_exists(FCPATH.CAPTCHA_PATH.$this->session->userdata['capimg']))
+            {
+                unlink(FCPATH.CAPTCHA_PATH.$this->session->userdata['capimg']);
+                return true;
+            }
+            else
+            {
+                if(file_exists(FCPATH.CAPTCHA_PATH.$this->session->userdata['capimg']))
+                    unlink(FCPATH.CAPTCHA_PATH.$this->session->userdata['capimg']);
+                return false;
+            }
+
+        }     
+        
 }

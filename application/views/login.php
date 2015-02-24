@@ -104,8 +104,27 @@
                                         ?>
                                     </select>
                                 </div>
+                                <div class="form-group" id="captcha_display">
+                                    <script type="text/javascript">
+                                        
+                                        function createCaptcha()
+                                        {
+                                            $.get("<?php echo site_url('captcha/') ?>",'',function (data)
+                                            {
+                                                $('#captcha_display').html(data);
+                                            });
+                                            
+                                        }
+                                        
+                                        $(document).ready(function()
+                                        {
+                                            createCaptcha();
+                                        });
+                                    </script>
+                                </div>
                                 <div class="form-group">
-                                    <?php echo $captcha['image']; ?>
+                                    <label for="pass">کد امنیتی</label>
+                                    <input type="text" name = "captcha" class="form-control" id="captcha" placeholder="">
                                 </div>
                                 <input type="submit" name="submit" value="ثبت نام" class="btn btn-default" id="register-btn">
                             </form>

@@ -48,20 +48,19 @@
                     <!-- Tab panes -->
                     <div class="tab-content">
                         <div role="tabpanel" class="tab-pane row active" id="login">
-                            <form class="col-md-6">
+                            <form method="post" action="<?php echo site_url('/member/dologin');?>" class="col-md-6">
+                               <div style="color: red;border: #000 solid  2px;"><?php echo $loginMsg;?></div>
                                 <div class="form-group">
                                     <label for="email">ایمیل</label>
-                                    <input type="email" class="form-control"
-                                           id="email" placeholder="ایمیل را وارد کنید">
+                                    <input type="text" class="form-control" id="email" placeholder="ایمیل را وارد کنید" name="login_user">
                                 </div>
                                 <div class="form-group">
                                     <label for="password">گذر واژه</label>
-                                    <input type="password" class="form-control"
-                                           id="pass" placeholder="گذرواژه را وارد کنید">
+                                    <input type="password" class="form-control" id="pass" placeholder="گذرواژه را وارد کنید" name="login_pass">
                                 </div>
                         <div class="checkbox">
                             <label for="remembering" dir="ltr">
-                                <input type="checkbox" id="remembering">مرا بخاطر بسپار
+                                <input type="checkbox" id="remembering" name="login_rem">مرا بخاطر بسپار
                             </label>
                         </div>
                             <button type="submit" class="btn btn-default" id="login-btn">ورود</button>

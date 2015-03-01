@@ -20,7 +20,7 @@ class Captcha extends CI_Controller
                 //'font_path' => './path/to/fonts/texb.ttf',
                 'img_width' => '150',
                 'img_height' => 40,
-                'expiration' => 800
+                'expiration' => 700
                 );
 
             $cap = create_captcha($vals);

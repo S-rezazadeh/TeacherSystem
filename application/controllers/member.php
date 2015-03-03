@@ -131,6 +131,9 @@ class Member extends CI_Controller
             $pass=$this->input->post('login_pass');
             
             $this->load->model('student_model');
+            $this->load->model('failed_login_model');
+            
+            $this->failed_login_model->clear();
             
             $login = $this->student_model->checkLogin($name,$pass);
             
@@ -159,7 +162,10 @@ class Member extends CI_Controller
             }
             
             else
+            {
+                $this->failed_login_model->add();
                 redirect ('member/index/incorrect');
+            }
             
         }
                

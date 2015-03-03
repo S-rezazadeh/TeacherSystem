@@ -1,4 +1,4 @@
-<?php
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Student_Model extends CI_Model
 {
@@ -24,15 +24,22 @@ class Student_Model extends CI_Model
         $sql = "SELECT * FROM student WHERE email = ? LIMIT 1";
         $result = $this->db->query($sql, array($email));
     
+        
         if($result->num_rows != 1)
             return FALSE;
        
         
         $info = $result->row_array();
         if($info['pass']==$this->passwordGenerator($pass, $info['salt']))
+        {
+            $sql = "update student set lastlogin = ? , lastip = ? WHERE id = ?";
+            $this->db->query($sql, array(time(),$this->input->ip_address(),$info['id']));
             return $info;
+        }
         else
+        {
             return false;
+        }
         
     }
     
@@ -74,6 +81,7 @@ class Student_Model extends CI_Model
         'status' => self::STATUS_MAIL_NOT_ACTIVATED,
         'uid' => $uni ,
         'registerDate' => time() ,
+        'lastlogin' => $this->input->ip_address(),
         );
 
         if($this->db->insert('student', $data)>0)

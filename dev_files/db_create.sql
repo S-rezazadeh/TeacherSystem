@@ -36,6 +36,9 @@ alter table student add lastip nvarchar(50);
 alter table student add lastlogin bigint;
 alter table student add registerDate bigint;
 
+#----------------------
+create table failedLogin(id int AUTO_INCREMENT , ip nvarchar(50) not null , time bigint not null , primary key (id));
+
 #By arashdn:
 ALTER DATABASE StudentSystem CHARACTER SET utf8 COLLATE utf8_general_ci;
 ALTER TABLE admin CONVERT TO CHARACTER SET utf8 COLLATE utf8_general_ci;

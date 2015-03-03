@@ -58,6 +58,16 @@
                                     <label for="password">گذر واژه</label>
                                     <input type="password" class="form-control" id="pass" placeholder="گذرواژه را وارد کنید" name="login_pass">
                                 </div>
+
+                               <?php if($showLoginCaptcha) : ?>
+                                <div class="form-group" id="captcha_display_login">
+                                </div>
+                                <div class="form-group">
+                                    <label for="pass">کد امنیتی</label>
+                                    <input type="text" name = "login_captcha" class="form-control" id="captcha" placeholder="">
+                                </div>
+                               <?php endif; ?>
+                               
                         <div class="checkbox">
                             <label for="remembering" dir="ltr">
                                 <input type="checkbox" id="remembering" name="login_rem">مرا بخاطر بسپار
@@ -111,6 +121,7 @@
                                             $.get("<?php echo site_url('captcha/') ?>",'',function (data)
                                             {
                                                 $('#captcha_display').html(data);
+                                                $('#captcha_display_login').html(data);
                                             });
                                             
                                         }

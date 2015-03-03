@@ -13,4 +13,18 @@ class Failed_Login_Model extends CI_Model
         $sql = "delete from failedlogin where time < ?";
         $this->db->query($sql, array(time()-$this->config->item('failed_login_timeout')));
     }
+    
+    
+    public function isIpOk($ip)
+    {
+        $sql = "SELECT count(*) FROM failedlogin WHERE ip = ?";
+        $result = $this->db->query($sql, array($ip));
+        
+        $info =  $result->row_array();
+        if($info['count(*)']>$this->config->item('failed_login_allowed'))
+        {
+            return false;
+        }
+        return true;
+    }
 }

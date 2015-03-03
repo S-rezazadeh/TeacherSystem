@@ -1,9 +1,16 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Member extends CI_Controller
+class Member extends MY_Controller
 {
 
-	public function index($sts = null)
+    function __construct() 
+    {
+        parent::__construct();
+        if($this->isLoggedIn())
+            redirect ('/');
+    }
+
+    public function index($sts = null)
 	{
             $this->load->model('university_model');
             $universities = $this->university_model->getAllUniversity();
@@ -16,6 +23,8 @@ class Member extends CI_Controller
                     break;
                 case 'incorrect':
                     $sts = 'نام کاربری یا کلمه عبور اشتباه است.';
+                case 'incorrectcaptcha':
+                    $sts = 'کد امنیتی صحیح نیست.';
                     break;
                 default:
                     $sts = 'خطایی در ورود رخ داد.';
@@ -29,7 +38,15 @@ class Member extends CI_Controller
             {
                 $sts = '';
             }
-            $data = array('universities' => $universities,'defTab'=>'','loginMsg'=>$sts);
+            
+            $this->load->model('failed_login_model');
+            $loginCaptcha = true;
+            if($this->failed_login_model->isIpOk($this->input->ip_address()))
+            {
+                $loginCaptcha = false;
+            }
+            
+            $data = array('universities' => $universities,'defTab'=>'','loginMsg'=>$sts , 'showLoginCaptcha'=>$loginCaptcha);
             
             $this->load->library('form_validation');
             
@@ -90,21 +107,27 @@ class Member extends CI_Controller
         
 
         
-        public function validate_captcha()
+        public function validate_captcha($type = 'register')
         {
-            $sss=$this->input->post('captcha');
+            $sss = '';
+            if($type == 'register')
+                $sss=$this->input->post('captcha');
+            else if($type == 'login')
+                $sss=$this->input->post('login_captcha');
+            else
+                return false;
             //$this->form_validation->set_message('validate_captcha', FCPATH.CAPTCHA_PATH.$this->session->userdata['capimg']);
 
-            
-            if($sss== $this->session->userdata['captcha'] && file_exists(FCPATH.CAPTCHA_PATH.$this->session->userdata['capimg']))
+            $path = FCPATH.CAPTCHA_PATH.$this->session->userdata['capimg'];
+            if($sss== $this->session->userdata['captcha'] && file_exists($path))
             {
-                unlink(FCPATH.CAPTCHA_PATH.$this->session->userdata['capimg']);
+                unlink($path);
                 return true;
             }
             else
             {
-                if(file_exists(FCPATH.CAPTCHA_PATH.$this->session->userdata['capimg']))
-                    unlink(FCPATH.CAPTCHA_PATH.$this->session->userdata['capimg']);
+                if(file_exists($path))
+                    unlink($path);
                 return false;
             }
 
@@ -134,6 +157,12 @@ class Member extends CI_Controller
             $this->load->model('failed_login_model');
             
             $this->failed_login_model->clear();
+            
+            if(!$this->failed_login_model->isIpOk($this->input->ip_address()))
+            {
+                if(!$this->validate_captcha('login'))
+                    redirect ('member/index/incorrectcaptcha');
+            }
             
             $login = $this->student_model->checkLogin($name,$pass);
             

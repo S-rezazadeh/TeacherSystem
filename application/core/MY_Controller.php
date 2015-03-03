@@ -9,6 +9,15 @@ class MY_Controller extends CI_Controller
         
     }
     
+    function isLoggedIn()
+    {
+        $login = $this->session->userdata('role');
+        if($login == false || $login == 0)
+            return false;
+        else
+            return true;
+    }
+    
     
     
 }

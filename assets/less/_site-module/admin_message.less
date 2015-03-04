@@ -1,6 +1,26 @@
-.unread{
-	font-weight: bold;
-	font-size: 12px;
+
+.list-group{
+
+		&>:not(.unread){
+			background: #F9F9F9;
+		}
+		.unread{
+			font-weight: bold;
+		}
+
+}
+.list-group-item{
+
+	&>time{
+		font-family: @font-mitra;
+	}&>span{
+		font-family: @font-mitra;
+		font-size: 1em;
+	}
+
+}
+ul.pagination{
+	margin: 10px;
 }
 #body-msg{
 	&::-webkit-scrollbar{

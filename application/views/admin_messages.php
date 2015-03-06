@@ -43,7 +43,13 @@
 				<div id="body-msg" class="list-group-item">
 					<div class="msg-item panel panel-default">
 						<div class="panel-heading">
-							<h5 class="panel-title">محمدشریفی <small class="pull-right">دانشگاه صنعتی ارومیه</small></h5>
+							<h5 class="panel-title">محمدشریفی <small class="pull-right">دانشگاه صنعتی ارومیه
+							|
+								<button type="submit" class="btn btn-default btn-xs">
+									<span class="text-primary icon-storage"></span>
+									اضافه به آرشیو</button>
+							</small></h5>
+
 						</div>
 						<div class="panel-body message-body">
 							<p>

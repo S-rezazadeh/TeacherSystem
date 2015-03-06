@@ -1,12 +1,27 @@
 body{
+	#wrapper {
+		min-height:100%;
+		position:relative;
+		.navbar-brand{
+			line-height: 20px;
+		}
+	}
 	background: #f2f2f2;
 	overflow-x: hidden;
 	line-height: 1.625;
 	font-family: tahoma;
+	height: 100%;
 	h1,h2,h3,h4,h5,.btn,nav,select>option,.nav,input{
 		font-family: @font-mitra !important;
 	}
 	main{
-		margin-bottom: 60px;
+		padding: 20px;
+		padding-bottom: 60px;
+		[class^="icon-"],[class^=" icon-"]{
+			margin-left: 4px;
+		}
+		input{
+			background-color: ghostwhite;
+		}
 	}
 }

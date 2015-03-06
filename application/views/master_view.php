@@ -34,7 +34,7 @@
 						<li><a href="#">اخبار و اطلاعیه</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="#">ورود استاد</a></li>
+                                            <li><a href="<?php echo site_url('member/logout')  ?>">خروج</a></li>
 					</ul>
 				</div>
 			</div>

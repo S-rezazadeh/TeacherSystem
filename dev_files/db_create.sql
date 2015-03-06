@@ -35,6 +35,7 @@ ALTER table student add foreign key(uid) references university(id);
 alter table student add lastip nvarchar(50);
 alter table student add lastlogin bigint;
 alter table student add registerDate bigint;
+alter table student add mailactive nvarchar(50);
 
 #----------------------
 create table failedLogin(id int AUTO_INCREMENT , ip nvarchar(50) not null , time bigint not null , primary key (id));

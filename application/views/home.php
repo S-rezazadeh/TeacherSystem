@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>صفحه اصلی</title>
 </head>
 <body>
-    Main page after user login. <br/>
-    <?php print_r($sess); ?>
+    صفحه اصلی بعد از ورود موفق آمیز کاربر <br/>
+    
 </body>
 </html>

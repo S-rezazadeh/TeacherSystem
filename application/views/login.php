@@ -134,7 +134,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="pass">کد امنیتی</label>
-                                    <input type="text" name = "captcha" class="form-control" id="captcha" placeholder="">
+                                    <input type="text" autocomplete="off" name = "captcha" class="form-control" id="captcha" placeholder="">
                                 </div>
                                 <input type="submit" name="submit" value="ثبت نام" class="btn btn-default" id="register-btn">
                             </form>

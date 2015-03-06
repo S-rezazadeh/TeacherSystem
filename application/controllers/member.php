@@ -28,11 +28,13 @@ class Member extends MY_Controller
                     break;
                 case 'incorrect':
                     $sts = 'نام کاربری یا کلمه عبور اشتباه است.';
+                    break;
                 case 'incorrectcaptcha':
                     $sts = 'کد امنیتی صحیح نیست.';
                     break;
                 default:
                     $sts = 'خطایی در ورود رخ داد.';
+                    break;
             } 
 
             if($sts != null)

@@ -31,12 +31,12 @@
 
 					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
 						<ul class="nav navbar-nav">
-							<li class="active"><a href="#">پرسش و پاسخ <span class="sr-only">(current)</span></a></li>
+							<li><a href="<?php echo site_url('admin/messagelist')  ?>">پیام ها</a></li>
 							<li><a href="#">دانلود منابع</a></li>
 							<li><a href="#">اخبار و اطلاعیه</a></li>
 						</ul>
 						<ul class="nav navbar-nav navbar-right">
-							<li><a href="#">ورود استاد</a></li>
+							<li><a href="<?php echo site_url('member/logout')  ?>">خروج</a></li>
 						</ul>
 					</div>
 				</div>
